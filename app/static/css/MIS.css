@@ -1,0 +1,483 @@
+#Menu{
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    box-shadow: 10px 10px 15px #00000038;
+    border-radius: 1.875rem;
+    width: 10rem;  
+    margin-top: -70px; 
+}
+#row-section{
+    width: 10rem;
+}
+.space{
+    height: 20px;
+}
+body{
+    background-color:#1E1F21 !important;
+    }
+
+/*=============================================
+=            menu highlight            =
+=============================================*/
+
+#menu-optoin.active{
+    background: #D1AE6E 0% 0% no-repeat padding-box;
+    width: 7rem;
+    height: 8.125rem;
+    border-radius: 1.875rem;
+}
+#cricle-background.active{
+    background: #F8FCFF1C 0% 0% no-repeat padding-box;
+  border-radius: 100%;
+  box-shadow: 0px 3px 6px #00000029;
+  border-color: none;
+  width: 3.75rem;
+  height: 3.75rem;
+  opacity: 0.8;
+}
+
+#fa.active{
+    color: white;
+    margin-left: 0.156rem;
+    letter-spacing: 0px;
+}
+#menu-text.active{
+    color: white;
+    padding-top: 0.8125rem;
+    text-decoration: none;
+    font: normal normal bold 18px/42px Helvetica;
+}
+
+/*=====  End of menu highlight  ======*/
+
+
+
+/*=============================================
+=            menu css            =
+=============================================*/
+
+#menu-optoin{
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    border: 1px solid #E2E2E238;
+    width: 7rem;
+    height: 8.125rem;
+    border-radius: 1.875rem;
+}
+#cricle-background{
+    background: #5DB1F81C 0% 0% no-repeat padding-box;
+    border-radius: 100%;
+    width: 3.75rem;
+    height: 3.75rem;
+    opacity: 0.8;
+}
+#fa{
+    color: #1D90F3;
+    margin-left: 0.156rem;
+    letter-spacing: 0px;
+}
+#menu-text{
+    color: #1D90F3;
+    padding-top: 0.8125rem;
+    text-decoration: none;
+    font: normal normal bold 18px/42px Helvetica;
+}
+/*=====  End of menu css  ======*/
+
+
+/*=============================================
+=            Top nav css            =
+=============================================*/
+#top-nav{
+    height: 3.885rem;
+    
+    background: #2E2E31 0% 0% no-repeat padding-box;
+    box-shadow: 10px 10px 15px #00000029;
+    border-radius: 0.375rem;
+    margin-left: 230px;
+}
+#top-nav-form{
+    background: #1E1F21 0% 0% no-repeat padding-box;
+    color: white;
+    border: none;
+    border-radius: 1.875rem;
+
+}
+.btn{
+    color: white;
+    height: 1.9375rem;
+    font: Helvetica;
+    font-size: 0.6875rem;
+    border-radius: 0.5rem;
+    border-color: #0E4A88 ;
+
+}
+.btn:hover{
+    background: #0E4A88 0% 0% no-repeat padding-box;
+    color: white;
+}
+#top-nav-icon{
+    color: #8D8D8D;
+}
+#top-nav-usename{
+    color: white;
+    font: Helvetica;
+    font-size: 12px;
+
+
+}
+
+/*=====  End of Top nav css  ======*/
+
+
+
+/*=============================================
+=            dashboard report section css            =
+=============================================*/
+#dashboard{
+    margin-left: 13.6875rem;
+    margin-top: -61.25rem;
+   
+}
+#page-title{
+    text-align: left;
+    font: normal normal bold 23px/66px Helvetica;
+    color: #AFAFAF;
+}
+.btn-dashboard{
+    background: #D1AE6E 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 8px;
+    color: white;
+    border: none;
+}
+.btn-dashboard-text{
+    font: normal normal bold 12px/28px Helvetica;
+    color: white;
+}
+#col-report{
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    box-shadow: 10px 10px 15px #00000038;
+    width: 23.75rem;
+    height: 15.625rem;
+    border-radius: 1.25rem;
+}
+#dashboard-report{
+    font: normal normal bold 18px/42px Helvetica;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-align: center;
+}
+rect{
+    color: black;
+}
+
+
+/*=====  End of dashboard report section css  ======*/
+
+#itemCheckout text {
+    fill: #8D8D8D !important;
+}
+.chart{
+    margin-left: 13.125rem;
+    
+}
+.money-spend{
+    margin-top: -9.375rem;
+    font: normal normal bold 12px/21px Helvetica;
+    color: #FDFDFD;
+}
+.expense-pre{
+    font: normal normal bold 40px/24px Montserrat;
+    margin-top: 2rem;
+    margin-left: 16.25rem;
+    color: #C7C7C7;
+}
+.money{
+    margin-top: -5rem;
+    font: normal normal bold 33px/76px Helvetica;
+    color: #1D90F3;
+}
+
+
+
+/*=============================================
+=            Modal css            =
+=============================================*/
+modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    
+  }
+  #myModal{
+  
+    background: #12121286 0% 0% no-repeat padding-box;
+  }
+  
+  /* Modal Content */
+.modal-content-box {
+    background-color: #fefefe;
+    color:#FFFFFF ;
+    margin-top:180px ;
+    margin-left: 250px;
+    padding: 20px;
+    border: 1px solid #888;
+    width:  1160px;
+    border: none;
+    border-radius: 1.25rem;
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    box-shadow: 5px 5px 10px #00000029;
+  }
+#addForm{
+    font: normal normal bold 14px/21px Helvetica;
+}
+.close {
+    color: #9D9D9D;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+.close:hover,
+.close:focus {
+    color: #ff0000;
+    text-decoration: none;
+    cursor: pointer;
+  }  
+  input[type=text] {
+    background: transparent;
+    border: none;
+    color: white;
+    border-bottom: 1px solid #FFFFFF;
+}
+#stock{
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    border: none;
+    color: white; 
+    border-bottom: 1px solid #FFFFFF;
+}
+
+#form-col-1{
+    margin-left: 200px;
+   
+}
+#form-col-2{
+    margin-left: 90px;
+}
+#btn-addForm{
+    width: 100px;
+    margin-left: 470px;
+    margin-top: 2%;
+    
+}
+#upload{
+    border: 1px solid #D3B47C;
+    color: white;
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    padding: 6px 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold; 
+}
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+/*=============================================
+=            Order Modal            =
+=============================================*/
+
+.modal-order {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    
+  }
+  #myModal-order{
+  
+    background: #12121286 0% 0% no-repeat padding-box;
+  }
+  
+  /* Modal Content */
+.modal-content-order {
+    background-color: #fefefe;
+    color:#FFFFFF ;
+    margin-top:20px ;
+    margin-left: 250px;
+    padding: 20px;
+    border: 1px solid #888;
+    width:  1160px;
+    border: none;
+    border-radius: 1.25rem;
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    box-shadow: 5px 5px 10px #00000029;
+  }
+  #addOrder-form{
+    font: normal normal bold 14px/21px Helvetica;
+}
+#qty{
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    border: none;
+    color: white; 
+    border-bottom: 1px solid #FFFFFF;
+}
+.close1 {
+    color: #9D9D9D;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+.close1:hover,
+.close1:focus {
+    color: #ff0000;
+    text-decoration: none;
+    cursor: pointer;
+  }  
+
+/*=====  End of Order Modal  ======*/
+
+/*=============================================
+=            Edit Model CSS            =
+=============================================*/
+.modal-edit {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    
+  }
+  #myModal-edit{
+  
+    background: #12121286 0% 0% no-repeat padding-box;
+  }
+  .close2 {
+    color: #9D9D9D;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+.close2:hover,
+.close2:focus {
+    color: #ff0000;
+    text-decoration: none;
+    cursor: pointer;
+  } 
+
+
+/*=====  End of Edit Model CSS  ======*/
+
+
+
+
+/*=====  End of Modal css  ======*/
+
+
+/*=============================================
+=            Dashboard Stock Table css            =
+=============================================*/
+.dashboard-stock-box{
+    width: 1170px;
+    margin-top: 50px;
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    box-shadow: 10px 10px 15px #00000038;
+    border-radius: 8px;
+}
+.stock-box-title{
+    text-align: left;
+    margin-left: 40px;
+    padding-top: 30px;
+    font: normal normal bold 25px/26px Helvetica;
+    color: #AFAFAF;
+
+}
+#filterBtn{
+    background: #D1AE6E 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    padding: -40px;
+}
+.btn-filter-text{
+    font: normal normal bold 12px/18px Helvetica;
+    color: white;
+}
+.filter-box{
+    display: inline;
+    margin-left: 30px;
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+    font: normal normal bold 12px/18px Helvetica;
+}
+#sort-by{
+    background: #AFAFAF 0% 0% no-repeat padding-box;
+    border: none;
+}
+#brand-filter{
+    background: #AFAFAF 0% 0% no-repeat padding-box;
+    border: none;
+}
+#category-filter{
+    background: #AFAFAF 0% 0% no-repeat padding-box;
+    border: none;
+}
+.table-header{
+    background: #D3B47C 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    color: white;
+    border-radius: 20px;
+}
+table{
+    margin-left: auto;
+}
+td {
+    font-size: 12px;
+    word-break:  break-word;
+    color: white;
+    font-family: Helvetica;;   
+}
+
+.tableBtn{
+    background-color:#2E2E30 ;
+    border: none;
+}
+.tableIcon{
+    color: #1D90F4;
+}
+.tableIcon-delete{
+    color: red;
+} 
+.seeMoreBtn{
+    text-decoration: none;
+    font: normal normal bold 10px Helvetica;
+    color: #D1AE6E;
+    margin-left: 559px;
+
+}
+.stock-search{
+    margin-left: 900px;
+    margin-top: -40px;  
+}
+
+/*=====  End of Dashboard Stock Table css  ======*/
+

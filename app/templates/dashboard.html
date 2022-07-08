@@ -1,0 +1,322 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class=" container-fluid " id="dashboard">
+    <h3 id="page-title"> Dashboard </h3>
+    <div class="ms-md-auto d-flex align-items-center">
+        <button class=" btn-dashboard btn-sm me-4 " type="button" id="addItemBtn"><i class="fs-6 bi-plus-circle-fill "></i> <span class="btn-dashboard-text p-1"> Add Item </span> </button>
+        <button class=" btn-dashboard btn-sm me-4 " type="submit"> <i class="fs-6 bi-bar-chart-line-fill"></i> <span class="btn-dashboard-text p-1">Reports</span></button>
+        <button class=" btn-dashboard btn-sm me-4 " type="button" id="addOrderBtn"><i class="fs-6 bi-cart-plus-fill"></i> <span class="btn-dashboard-text p-1">Add Order</span></button>
+    </div>
+    <div class="ms-auto d-flex mt-4" id="row-base-1">
+        <div class="" id="col-report">
+            <h3 id="dashboard-report">Inventory Summary</h3>
+            <div class="container" id="Inventory-Summary-box"> </div>
+
+        </div>
+        <div class=" mx-3" id="col-report">
+            <h3 id="dashboard-report">Number of Item Checkout</h3>
+            <div class="container" id="itemCheckout"> </div>
+
+        </div>
+        <div class=" mx-1" id="col-report">
+            <h3 id="dashboard-report">Total Expense</h3>
+            <div class="chart" data-percent="90" > </div>
+            <p class="money-spend mx-4">Money spend during the Month</p>
+            <p class="expense-pre"> </p>
+            <p class="money mx-4"></p>
+            
+
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content-box">
+          <span class="close">&times;</span>
+          <form name="addItem-form" class="" action="{{ url_for('addItem') }}" id="addForm" method="POST">
+            <div class="row">
+                <div class="col-3" id="form-col-1">
+                    <label class="form-label"for="itemName"> Item Name:</label>
+                        <br>
+                    <input type="text" id="itemName" name="itemName" required>
+                        <br>
+                    <p class="mt-5">
+                        <label class="form-label"for="stock"> Stock:</label>
+                        <br>
+                        <input type="number" min=0 max=100 id="stock" name="stock" required pattern="^[0-9]*$">
+                    </p>
+
+                    <br>
+                    <p class="mt-5">
+                        <label class="form-label"for="brand"> Brand:</label>
+                        <br>
+                        <input type="text" id="brand" name="brand" required>
+                    </p>
+
+                    <p class="mt-5">
+                        <label class="form-label"for="location"> Location:</label>
+                        <br>
+                        <input type="text" id="location" name="location" required>
+                    </p>
+                    
+
+                </div>
+                <div class="col-3 pt-1 px-5" id="form-col-2">
+                    <label class="" for="Description">Description:</label> 
+                    <br>
+                    <input type="text" id="Description" name="Description" required>
+
+                    <br>
+                    <p class="mt-5 pt-2" id="formCell">
+                        <label class="form-label"for="comment"> Comment:</label>
+                        <br>
+                        <input type="text" id="comment" name="comment" required>
+                    </p>
+
+                    <br>
+                    <p class="mt-5 pt-2" id="formCell">
+                        <label class="form-label"for="category"> Category:</label>
+                        <br>
+                        <input type="text" id="category" name="category" required>
+                    </p>
+                        <br>
+                    <p class="mt-5 pt-2 upload-btn-wrapper" id="formCell">
+                        <label class="form-label"for="myFile" id="upload"> Upload Image</label>
+                        <br>
+                        <input type="file" id="myFile" name="filename">
+                    </p>
+
+                </div>
+
+            </div>
+            
+            <button type="submit" class="btn-dashboard btn-sm " id="btn-addForm" value="send"> Add </button>
+            
+        </form>
+    </div>
+    </div>
+
+    <div id="myModal-order" class="modal-order">
+
+        <!-- Modal content -->
+        <div class="modal-content-order">
+          <span class="close1">&times;</span>
+          <form name="addOrder-form" class="" action="{{ url_for('addOrder') }}" id="addOrder-form" method="POST">
+            <div class="row">
+                <div class="col-3" id="form-col-1">
+                    <label class="form-label"for="itemName"> Item Name:</label>
+                        <br>
+                    <input type="text" id="itemName" name="itemName"required>
+                        <br>
+                    <p class="mt-5">
+                        <label class="form-label"for="stock"> Qty:</label>
+                        <br>
+                        <input type="number" min=0 max=1000 id="qty" name="qty" required pattern="^[0-9]*$">
+                    </p>
+
+                    <br>
+                    <p class="mt-5">
+                        <label class="form-label"for="category"> Category:</label>
+                        <br>
+                        <input type="text" id="category" name="category" required>
+                    </p>
+                    
+
+                </div>
+                <div class="col-3 pt-1 px-5" id="form-col-2">
+                    <label class="" for="comment:">Comment:</label> 
+                    <br>
+                    <input type="text" id="comment" name="comment" required>
+
+                    <br>
+                    <p class="mt-5 pt-2" id="formCell">
+                        <label class="form-label"for="brand"> Brand:</label>
+                        <br>
+                        <input type="text" id="brand" name="brand" required>
+                    </p>
+
+                    <br>
+                    <p class="mt-5 pt-2" id="formCell">
+                        <label class="form-label"for="price"> Price:</label>
+                        <br>
+                        <input type="text" id="price" name="price" required>
+                    </p>
+                </div>
+
+            </div>
+            
+            <button type="submit" class="btn-dashboard btn-sm " id="btn-addForm" value="send"> Add </button>
+            
+        </form>
+    </div>
+    </div>
+    <div class="dashboard-stock-box">
+        <h3 class="stock-box-title"> Stock</h3>
+        <form action="" class="mt-5 sortform" name="sortform">
+            <div class="filter-box">
+                <label for="category-filter">Category:</label>
+                <select id="category-filter" name="categoryList">
+                    <option value=""></option>
+                    <option value="Office Item">Office Item</option>
+                    <option value="Kitchen Items"> Kitchen Item</option>
+                 </select>
+            </div>
+            <div class="filter-box">
+                <label for="brand-filter">Brand:</label>
+                <select id="brand-filter" name="brandList">
+                    <option value=""></option>
+                    <option value="Mystique">Mystique</option>
+                    <option value="AE"> AE</option>
+                 </select>
+            </div>
+            <div class="filter-box">
+                <label for="sort-by">Sort by:</label>
+                <option value=""></option>
+                <select id="sort-by" name="sort-by">
+                    <option value=""></option>
+                    <option value="Low Stock">Low Stock</option>
+                    <option value="New Stock"> New Stock</option>
+                 </select>
+                 
+            </div>
+            <button class=" btn-sm mx-2 " type="button" id="filterBtn"> <span class=" btn-filter-text p-1"> Filter </span> </button>  
+        </form>
+        <div class="pt-2 d-flex align-items-center stock-search">
+            <form class="d-flex ">
+                <input class="stockSearch" type="text" placeholder="Search"  id="top-nav-form" onkeyup="stockSearch()" >
+             </form>
+        </div>
+       
+        <div class="mt-5">
+            <table class="table" id="stock-table">
+                <thead>
+                    <tr class="table-header">
+                      <th scope="col">#</th>
+                      <th scope="col">Item</th>
+                      <th scope="col">Stock</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Comment</th>
+                      <th scope="col">Brand</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Location</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for stock in stockData %}
+                    <tr class="data">
+                        <td scope="row" class="marker">
+                            {% if stock[2] < 5 %}
+                            <img src="../static/assets/maker-active.png"" alt=""  width="15" height="15" " alt="" class="mark-img">
+                            {% else %}
+                            <img src="../static/assets/marker.png"" alt=""  width="15" height="15" " alt="" class="mark-img">
+                            {% endif %}
+                            <p class="stockId" hidden>
+                                {{ stock[0]}}
+                            </p>
+                        </td>
+                        <td class="stock-itemName"> 
+                            <img src="../static/assets/black meeting chair.png" alt=""  width="50" height="50" " alt="">
+                            <br>
+                            <br>
+                            <p class="item"> {{ stock[1]}}</p>
+                        </td>
+                        <td class="stock-qty">{{ stock[2]}}</td>
+                        <td style="width: 50px" class="stock-description">{{ stock[3]}}</td>
+                        <td class="stock-comment">{{ stock[4]}}</td>
+                        <td class="stock-brand">{{ stock[5]}}</td>
+                        <td class="stock-category">{{ stock[6]}}</td>
+                        <td class="stock-location">{{ stock[7]}}</td>
+                        <td class="stock-action">
+                            <button class="tableBtn editBtn"> <i class=" fs-6 tableIcon bi bi-pencil-fill"></i></button>
+                            <button class="tableBtn"> <i class=" fs-6 tableIcon-delete bi bi-trash-fill"></i></button>
+                        </td>
+                        
+                      </tr> 
+
+
+                    {% endfor %}
+                  </tbody>
+
+            </table>
+            <a href=""class="seeMoreBtn"> SEE MORE <i class=" bi-arrow-right"> </i></a>
+        </div>
+         <div id="myModal-edit" class="modal-edit">
+
+        <!-- Modal content -->
+        <div class="modal-content-box">
+          <span class="close2">&times;</span>
+          <form name="editItem-form" class="" action="{{ url_for('dashboard') }}" id="editForm" method="POST">
+            <div class="row">
+                <div class="col-3" id="form-col-1">
+                    <label class="form-label"for="itemName"> Item Name:</label>
+                        <br>
+                    <input type="text" id="itemName-edit" name="itemName-edit"required>
+                        <br>
+                    <p class="mt-5">
+                        <label class="form-label"for="stock"> Stock:</label>
+                        <br>
+                        <input type="number" min=0 max=100 id="stock-edit" name="stock-edit" required pattern="^[0-9]*$">
+                    </p>
+
+                    <br>
+                    <p class="mt-5">
+                        <label class="form-label"for="brand"> Brand:</label>
+                        <br>
+                        <input type="text" id="brand-edit" name="brand-edit" required>
+                    </p>
+
+                    <p class="mt-5">
+                        <label class="form-label"for="location"> Location:</label>
+                        <br>
+                        <input type="text" id="location-edit" name="location-edit" required>
+                    </p>
+                    
+
+                </div>
+                <div class="col-3 pt-1 px-5" id="form-col-2">
+                    <label class="" for="Description">Description:</label> 
+                    <br>
+                    <input type="text" id="Description-edit" name="Description-edit" required>
+
+                    <br>
+                    <p class="mt-5 pt-2" id="formCell">
+                        <label class="form-label"for="comment"> Comment:</label>
+                        <br>
+                        <input type="text" id="comment-edit" name="comment-edit" required>
+                    </p>
+
+                    <br>
+                    <p class="mt-5 pt-2" id="formCell">
+                        <label class="form-label"for="category"> Category:</label>
+                        <br>
+                        <input type="text" id="category-edit" name="category-edit" required>
+                    </p>
+                    
+                        <br>
+                    <p class="mt-5 pt-2 upload-btn-wrapper" id="formCell">
+                        <label class="form-label"for="myFile" id="upload"> Upload Image</label>
+                        <br>
+                        <input type="file" id="myFile" name="filename">
+                    </p>
+
+                    <br>
+                    <p class="mt-5 pt-2" id="formCell" hidden>
+                        <input type="text" id="stockId-edit" name="stockId-edit" required>
+                    </p>
+
+                </div>
+
+            </div>
+            
+            <button type="submit" class="btn-dashboard btn-sm " id="btn-addForm" value="send" name="editItem"> Add Update </button>
+            
+        </form>
+    </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}
