@@ -152,6 +152,7 @@
         </form>
     </div>
     </div>
+    
     <div class="dashboard-stock-box">
         <h3 class="stock-box-title"> Stock</h3>
         <form action="" class="mt-5 sortform" name="sortform">
@@ -178,8 +179,7 @@
                     <option value=""></option>
                     <option value="Low Stock">Low Stock</option>
                     <option value="New Stock"> New Stock</option>
-                 </select>
-                 
+                 </select>     
             </div>
             <button class=" btn-sm mx-2 " type="button" id="filterBtn"> <span class=" btn-filter-text p-1"> Filter </span> </button>  
         </form>
@@ -317,6 +317,49 @@
     </div>
     </div>
     </div>
+    <div class="dashboard-order-box">
+        <h3 class="order-box-title"> Order </h3>
+        <form action="" class="mt-5 sortform" name="sortform">
+            <div class="filter-box">
+                <label for="order-category-filter">Category:</label>
+                <select id="order-category-filter" name="categoryList">
+                    <option value=""></option>
+                    <option value="Office Item">Office Item</option>
+                    <option value="Kitchen Items"> Kitchen Item</option>
+                 </select>
+            </div>
+            <div class="filter-box">
+                <label for="order-brand-filter">Brand:</label>
+                <select id="order-brand-filter" name="brandList">
+                    <option value=""></option>
+                    <option value="Mystique">Mystique</option>
+                    <option value="AE"> AE</option>
+                 </select>
+            </div>
+            <div class="filter-box">
+                <label for="sort-by">Sort by:</label>
+                <option value=""></option>
+                <select id="order-sort-by" name="sort-by">
+                    <option value=""></option>
+                    <option value="Low Stock">Low Stock</option>
+                    <option value="New Stock"> New Stock</option>
+                 </select>     
+            </div>
+            <button class=" btn-sm mx-2 " type="button" id="filterBtn"> <span class=" btn-filter-text p-1"> Filter </span> </button>  
+        </form>
+        <div class="pt-2 d-flex align-items-center order-search">
+            <form class="d-flex ">
+                <input class="orderSearch" type="text" placeholder="Search"  id="top-nav-form" onkeyup="stockSearch()" >
+             </form>
+        </div>
+
+    </div>
+    
+  
+    
+    
+    
+    
 </div>
 
 {% endblock %}
