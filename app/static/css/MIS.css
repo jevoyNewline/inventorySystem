@@ -117,7 +117,7 @@ body{
 #top-nav-icon{
     color: #8D8D8D;
 }
-#top-nav-usename{
+#top-nav-username{
     color: white;
     font: Helvetica;
     font-size: 12px;
@@ -206,7 +206,7 @@ modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 200px; /* Location of the box */
+    padding-top: 12.5rem; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -223,11 +223,11 @@ modal {
 .modal-content-box {
     background-color: #fefefe;
     color:#FFFFFF ;
-    margin-top:180px ;
-    margin-left: 250px;
-    padding: 20px;
+    margin-top:11.25rem ;
+    margin-left: 15.625rem;
+    padding: 1.25rem;
     border: 1px solid #888;
-    width:  1160px;
+    width:  72.5rem;
     border: none;
     border-radius: 1.25rem;
     background: #2E2E30 0% 0% no-repeat padding-box;
@@ -236,7 +236,7 @@ modal {
 #addForm{
     font: normal normal bold 14px/21px Helvetica;
 }
-.close,.close1,.close2 {
+.close,.close1,.close2,.close3 {
     color: #9D9D9D;
     float: right;
     font-size: 28px;
@@ -247,7 +247,9 @@ modal {
 .close1:hover,
 .close1:focus,
 .close2:hover,
-.close2:focus {
+.close2:focus,
+.close3:hover,
+.close3:focus {
     color: #ff0000;
     text-decoration: none;
     cursor: pointer;
@@ -266,15 +268,15 @@ modal {
 }
 
 #form-col-1{
-    margin-left: 200px;
+    margin-left: 12.5rem;
    
 }
 #form-col-2{
-    margin-left: 90px;
+    margin-left: 5.625rem;
 }
 #btn-addForm{
-    width: 100px;
-    margin-left: 470px;
+    width: 6.25rem;
+    margin-left: 29.375rem;
     margin-top: 2%;
     
 }
@@ -282,7 +284,7 @@ modal {
     border: 1px solid #D3B47C;
     color: white;
     background: #2E2E30 0% 0% no-repeat padding-box;
-    padding: 6px 30px;
+    padding: 0.375rem 1.875rem;
     border-radius: 10px;
     font-size: 14px;
     font-weight: bold; 
@@ -299,11 +301,11 @@ modal {
 =            Order Modal            =
 =============================================*/
 
-.modal-order {
+.modal-order,.orderModel-edit {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 200px; /* Location of the box */
+    padding-top: 12.5rem; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -311,7 +313,7 @@ modal {
     overflow: auto; /* Enable scroll if needed */
     
   }
-  #myModal-order{
+  #myModal-order,#myModal-order-edit{
   
     background: #12121286 0% 0% no-repeat padding-box;
   }
@@ -320,11 +322,11 @@ modal {
 .modal-content-order {
     background-color: #fefefe;
     color:#FFFFFF ;
-    margin-top:20px ;
-    margin-left: 250px;
-    padding: 20px;
+    margin-top:1.25rem ;
+    margin-left: 15.625rem;
+    padding: 1.25rem;
     border: 1px solid #888;
-    width:  1160px;
+    width:  72.5rem;
     border: none;
     border-radius: 1.25rem;
     background: #2E2E30 0% 0% no-repeat padding-box;
@@ -351,7 +353,7 @@ modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 200px; /* Location of the box */
+    padding-top: 12.5rem; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -377,26 +379,26 @@ modal {
 =            Dashboard Stock Table css            =
 =============================================*/
 .dashboard-stock-box,.dashboard-order-box{
-    width: 1170px;
-    margin-top: 50px;
+    width: 73.125rem;
+    margin-top: 3.125rem;
     background: #2E2E30 0% 0% no-repeat padding-box;
     box-shadow: 10px 10px 15px #00000038;
     border-radius: 8px;
 }
 .stock-box-title,.order-box-title{
     text-align: left;
-    margin-left: 40px;
-    padding-top: 30px;
+    margin-left: 2.5rem;
+    padding-top: 1.875rem;
     font: normal normal bold 25px/26px Helvetica;
     color: #AFAFAF;
 
 }
-#filterBtn{
+#filterBtn,#order-filterBtn{
     background: #D1AE6E 0% 0% no-repeat padding-box;
     border-radius: 8px;
     color: white;
     border: none;
-    padding: -40px;
+    padding: -2.5rem;
 }
 .btn-filter-text{
     font: normal normal bold 12px/18px Helvetica;
@@ -404,10 +406,10 @@ modal {
 }
 .filter-box{
     display: inline;
-    margin-left: 30px;
+    margin-left: 1.875rem;
     background: #2E2E30 0% 0% no-repeat padding-box;
     border-radius: 8px;
-    padding: 10px;
+    padding: 0.625rem;
     color: white;
     font: normal normal bold 12px/18px Helvetica;
 }
@@ -453,12 +455,12 @@ td {
     text-decoration: none;
     font: normal normal bold 10px Helvetica;
     color: #D1AE6E;
-    margin-left: 559px;
+    margin-left: 34.9375rem;
 
 }
 .stock-search,.order-search{
-    margin-left: 900px;
-    margin-top: -40px; 
+    margin-left: 56.25rem;
+    margin-top: -2.5rem; 
    
 }
 

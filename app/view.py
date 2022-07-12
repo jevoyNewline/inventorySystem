@@ -18,8 +18,10 @@ def dashboard():
         request.form['stock-edit'],request.form['comment-edit'],request.form['brand-edit'],
         request.form['category-edit'],request.form['location-edit'],request.form.get("filename", False),request.form['stockId-edit'])
     stockData=fetchStockData()
+    orderData=fetchOrderData()
+    orderData=orderData[:6]
     stockData=stockData[:6]
-    return render_template("dashboard.html",stockData=stockData)
+    return render_template("dashboard.html",stockData=stockData,orderData=orderData)
     
 @app.route("/inventorysummuary", methods=["POST","GET"])
 def inventorysummuary():

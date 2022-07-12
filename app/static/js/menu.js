@@ -208,6 +208,12 @@ spanEdit.onclick = function() {
   modalEditClose.style.display = "none";
 }
 
+var orderModalEditClose= document.getElementsByClassName("close3")[0];
+var orderModalEdit = document.getElementById("myModal-order-edit");
+orderModalEditClose.onclick= function(){
+  orderModalEdit.style.display = "none";
+}
+
 /*=====  End of   ======*/
 
 
@@ -237,6 +243,9 @@ window.onclick = function(event) {
   }
   if (event.target == modalEditClose) {
     modalEditClose.style.display = "none";
+  }
+  if (event.target == orderModalEdit) {
+    orderModalEdit.style.display = "none";
   }
 }
 
@@ -277,6 +286,33 @@ $('.editBtn').on('click', function(event){
   $('#brand-edit').val(stockBrand.text());
   $('#category-edit').val(stockCategory.text());
   $('#location-edit').val(stockLocation.text());
+  
+})
+/*=============================================
+=            Order Table Edit Function            =
+=============================================*/
+$('.orderEditBtn').on('click', function(){
+  var percentClass=$(this).closest('.order-data');
+  var orderId=percentClass.children('.orderId');
+  var OrderItem=percentClass.children('.order-itemName');
+  var orderNumber=percentClass.children('.order-qty');
+  var orderComment=percentClass.children('.order-comment');
+  var orderBrand=percentClass.children('.order-brand');
+  var orderCategory=percentClass.children('.order-category');
+  var orderDate=percentClass.children('.order-date');
+  var orderPrice=percentClass.children('.order-price');
+
+  // Get the button that opens the modal
+  var modalEdit = document.getElementById("myModal-order-edit");
+  modalEdit.style.display = "block";
+  $('#orderId-edit').val(orderId.text());
+  $('#itemName-orderEdit').val(OrderItem.text());
+  $('#qty-orderEdit').val(orderNumber.text());
+  $('#comment-orderEdit').val(orderComment.text());
+  $('#brand-orderEdit').val(orderBrand.text());
+  $('#category-orderEdit').val(orderCategory.text());
+  $('#price-orderEdit').val(orderPrice.text());
+  
   
 })
  

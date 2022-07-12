@@ -33,6 +33,13 @@ def fetchStockData():
     cursor.execute(query)
     rows=cursor.fetchall()
     return rows
+def fetchOrderData():
+    query="SELECT * FROM purchase "
+    cursor = mydb.cursor()
+    cursor.execute(query)
+    rows=cursor.fetchall()
+    return rows
+    
 
 def editStockDatabase(itemNameEdit,DescriptionEdit,stockEdit,commentEdit,brandEdit,categoryEdit,locationEdit,filename,stockIdEdit):
     stockIdEdit=int(stockIdEdit)

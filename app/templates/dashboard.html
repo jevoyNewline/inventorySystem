@@ -241,7 +241,7 @@
                   </tbody>
 
             </table>
-            <a href=""class="seeMoreBtn"> SEE MORE <i class=" bi-arrow-right"> </i></a>
+            <a href=""class="seeMoreBtn mb-2"> SEE MORE <i class=" bi-arrow-right"> </i></a>
         </div>
          <div id="myModal-edit" class="modal-edit">
 
@@ -345,21 +345,114 @@
                     <option value="New Stock"> New Stock</option>
                  </select>     
             </div>
-            <button class=" btn-sm mx-2 " type="button" id="filterBtn"> <span class=" btn-filter-text p-1"> Filter </span> </button>  
+            <button class=" btn-sm mx-2 " type="button" id="order-filterBtn"> <span class=" btn-filter-text p-1"> Filter </span> </button>  
         </form>
         <div class="pt-2 d-flex align-items-center order-search">
             <form class="d-flex ">
                 <input class="orderSearch" type="text" placeholder="Search"  id="top-nav-form" onkeyup="stockSearch()" >
              </form>
         </div>
+        <div class="mt-5">
+            <table class="table" id="order-table">
+                <thead>
+                    <tr class="table-header">
+                      <th scope="col">#</th>
+                      <th scope="col">Item</th>
+                      <th scope="col">Stock</th>
+                      <th scope="col">Comment</th>
+                      <th scope="col">Brand</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for order in orderData %}
+                    <tr class="order-data">
+                        <td scope="row" class="orderId">{{ order[0]}}</td>
+                        <td class="order-itemName">{{ order[1]}}</td>
+                        <td class="order-qty">{{ order[2]}}</td>
+                        <td class="order-comment">{{ order[3]}}</td>
+                        <td class="order-brand">{{ order[4]}}</td>
+                        <td class="order-category">{{ order[5]}}</td>
+                        <td class="order-date">{{ order[6]}}</td>
+                        <td class="order-price">{{ order[7]}}</td>
+                        <td class="order-action">
+                            <button class="tableBtn orderEditBtn"> <i class=" fs-6 tableIcon bi bi-pencil-fill"></i></button>
+                            <button class="tableBtn"> <i class=" fs-6 tableIcon-delete bi bi-trash-fill"></i></button>
+                        </td>
+                        
+                      </tr> 
+        
 
-    </div>
-    
-  
-    
-    
-    
-    
+
+                    {% endfor %}
+                  </tbody>
+
+            </table>
+            <a href=""class="seeMoreBtn mb-2"> SEE MORE <i class=" bi-arrow-right"> </i></a>
+
+
+            <div id="myModal-order-edit" class="orderModel-edit">
+                <!-- Modal content -->
+                <div class="modal-content-order">
+                  <span class="close3">&times;</span>
+                  <form name="addOrder-form" class="" action="{{ url_for('addOrder') }}" id="addOrder-form" method="POST">
+                    <div class="row">
+                        <div class="col-3" id="form-col-1">
+                            <label class="form-label"for="itemName"> Item Name:</label>
+                                <br>
+                            <input type="text" id="itemName-orderEdit" name="itemName-orderEdi"required>
+                                <br>
+                            <p class="mt-5">
+                                <label class="form-label"for="stock"> Qty:</label>
+                                <br>
+                                <input type="number" min=0 max=1000 id="qty-orderEdit" name="qty-orderEdit" required pattern="^[0-9]*$">
+                            </p>
+        
+                            <br>
+                            <p class="mt-5">
+                                <label class="form-label"for="category"> Category:</label>
+                                <br>
+                                <input type="text" id="category-orderEdit" name="category-orderEdit" required>
+                            </p>
+                            
+        
+                        </div>
+                        <div class="col-3 pt-1 px-5" id="form-col-2">
+                            <label class="" for="comment:">Comment:</label> 
+                            <br>
+                            <input type="text" id="comment-orderEdit" name="comment-orderEdit" required>
+        
+                            <br>
+                            <p class="mt-5 pt-2" id="formCell">
+                                <label class="form-label"for="brand"> Brand:</label>
+                                <br>
+                                <input type="text" id="brand-orderEdit" name="brand-orderEdit" required>
+                            </p>
+        
+                            <br>
+                            <p class="mt-5 pt-2" id="formCell">
+                                <label class="form-label"for="price"> Price:</label>
+                                <br>
+                                <input type="text" id="price-orderEdit" name="price-orderEdit" required>
+                            </p>
+                            <p class="mt-5 pt-2" id="formCell" hidden>
+                                <input type="text" id="orderId-edit" name="orderId-edit" required>
+                            </p>
+                        </div>
+        
+                    </div>
+                    
+                    <button type="submit" class="btn-dashboard btn-sm " id="btn-addForm" value="send"> Add </button>
+                    
+                </form>
+            </div>
+            </div>
+            
+
+    </div>   
 </div>
 
 {% endblock %}
