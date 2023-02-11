@@ -1,0 +1,202 @@
+#report-box{
+    margin-left: 13.6875rem;
+    margin-top: -61.25rem;
+   
+}
+#col-report-box{
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    box-shadow: 10px 10px 15px #00000038;
+    width: 35.75rem;
+    height: 20.625rem;
+    border-radius: 1.25rem;
+}
+.expense-title,.Kitchenexp-title,.total-title {
+    font: normal normal bold 14px/21px Montserrat;
+    color: #FDFDFD;
+}
+.expense-pre-title{
+    position: absolute;
+    font: normal normal bold 13px/21px Montserrat;
+    color: #FDFDFD;
+    left: 520px ;
+
+}
+.overExpense-title,.KitchenExpense-title {
+    position: absolute;
+    top: 295px;
+    font: normal normal bold 14px/21px Montserrat;
+    color: #FDFDFD;
+}
+.chart-report,.KitchenChart-report,.OfficeChart-report{
+    margin-top: 45px;
+    margin-left: 22.125rem;
+    
+}
+.expense-pre-report{
+    position: absolute;
+    font: normal normal bold 40px/24px Montserrat;
+    top: 23.5rem;
+    left: 41rem;
+    color: #D1AE6E ;
+}
+.money-report,.KitchenMoney-report{
+    position: absolute;
+    top: 235px;
+    font: normal normal bold 25px/76px Montserrat;
+    color: #1D90F3;
+}
+#month-select,#KitchenMonth-select{
+    font-size: 14px;
+    position: absolute;
+    top: 385px;
+    width:130px ;
+    height: 30px;
+    padding: 20px;
+    background: #AFAFAF;
+    margin-left: 0.5rem;
+    opacity: 0;
+    z-index: 1;
+   
+}
+.month-text,.KitchenMonth-text,.OfficeMonth-text{
+    padding: 10px;
+    color: white;
+    margin-left: 1rem;
+
+}
+.month-box,.KitchenMonth-box{
+    position: absolute;
+    top: 380px;
+    font: normal normal bold 14px/21px Montserrat;
+    width: 130px;
+    height: 40px;
+    border: 0.1px solid #D1AE6E;
+    border-radius: 0.875rem;
+}
+.overExpense,.KitchenOverExpense{
+    position: absolute;
+    top: 299px;
+    font: normal normal bold 25px/76px Montserrat;
+    color: #1D90F3;
+
+}
+.Kitchenexp-pre-title{
+    position: absolute;
+    font: normal normal bold 13px/21px Montserrat; 
+    color: #FDFDFD;
+    left: 1100px;
+}
+.Kitchenexp-pre-report{
+    position: absolute;
+    font: normal normal bold 40px/24px Montserrat;
+    top: 23.5rem;
+    left: 1246px;
+    color: #D1AE6E ;
+
+}
+#Paid-select{
+    position: absolute;
+    z-index: 1;
+    top: 24.5rem;
+    margin-left: 180px;
+    width:130px ;
+    height: 130px;
+    opacity: 0;
+    
+}
+.Paid-box{
+    position: absolute;
+    top: 380px;
+    font: normal normal bold 14px/21px Montserrat;
+    width: 130px;
+    height: 40px;
+    margin-left: 180px;
+    border: 0.1px solid #D1AE6E;
+    border-radius: 0.875rem;
+}
+.Paid-text{
+    padding: 10px;
+    color: white;
+    margin-left: 0.5rem;
+
+}
+.Office-pre-report{
+    position: absolute;
+    font: normal normal bold 40px/24px Montserrat; 
+    color: #D1AE6E ;
+    left: 41rem;
+    margin-top: -110px;
+}
+.OfficeMoney-report{
+    position: absolute;
+    font: normal normal bold 25px/76px Montserrat;
+    margin-top: -250px;
+    color: #1D90F3;
+}
+.OfficeExpense-title{
+    position: absolute;
+    font: normal normal bold 14px/21px Montserrat;
+    color: #FDFDFD;
+    margin-top: -190px;
+}
+.officeExpense{
+    position: absolute;
+    font: normal normal bold 25px/76px Montserrat;
+    color: #1D90F3;
+    margin-top: -185px;
+}
+#OfficeMonth-select{
+    -webkit-appearance: menulist-button;
+    position: absolute;
+    font-size: 14px;
+    top: 46rem;
+    width:130px ;
+    height: 50px;
+    padding: 20px;
+    z-index: 1;
+    opacity: 0;
+}
+.OfficeMonth-box{
+    position: absolute;
+    top: 46.5rem;
+    font: normal normal bold 14px/21px Montserrat;
+    width: 130px;
+    height: 40px;
+    border: 0.1px solid #D1AE6E;
+    border-radius: 0.875rem;
+}
+#OfficePaid-select{
+    -webkit-appearance: menulist-button;
+    position: absolute;
+    font-size: 14px;
+    height: 50px;
+    top: 47rem;
+    width: 130px;
+    margin-left: 180px;
+    z-index: 1;
+    opacity: 0;
+}
+
+.OfficePaid-box{
+    position: absolute;
+    top: 46.5rem;
+    margin-left: 180px;
+    font: normal normal bold 14px/21px Montserrat;
+    width: 130px;
+    height: 40px;
+    border: 0.1px solid #D1AE6E;
+    border-radius: 0.875rem;
+}
+.OfficePaid-text{
+    padding: 10px;
+    color: white;
+    margin-left: 0.5rem;
+
+}
+.total-box{
+    width: 150px;
+    margin-top: -20px;
+    border-radius: 0.875rem;
+    background-color: #3E4041;
+    
+}

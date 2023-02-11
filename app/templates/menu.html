@@ -1,8 +1,8 @@
 
             <div class=" mx-3 " id="Menu">
                 <ul class="nav nav-pills flex-column align-items-center"  >
-                    <div class="active mt-4 sidemenu" id="menu-optoin">
-                        <div class=" active mx-4 mt-3 " id="cricle-background">
+                    <div class="active mt-4 sidemenu dashboard" id="menu-optoin" onclick="window.location.href='http://127.0.0.1:8080/dashboard'">
+                        <div class=" active mx-4 mt-3 "  id="cricle-background">
                             <li class="nav-item ">
                                 <a href="{{ url_for('dashboard') }}" class="nav-link ">
                                     <i class=" active fs-4 bi-house-fill pt-3 " id="fa"></i>
@@ -13,7 +13,7 @@
                             <span class="ps-4 ms-2 ">Home</span>
                         </a>
                     </div>
-                    <div class=" sidemenu mt-5 pt-1"  id="menu-optoin">
+                    <div class=" sidemenu mt-5 pt-1 stock"  id="menu-optoin">
                         <div class=" mx-4 mt-3" id="cricle-background"  >
                             <li class="nav-item sidemenu">
                                 <a href="#" class="nav-link ">
@@ -25,51 +25,51 @@
                             <span class="ps-4 ">In Stock</span>
                         </a>
                     </div>
-                    <div class="mt-5"  id="menu-optoin">
+                    <div class="mt-5 invoice"  id="menu-optoin" onclick="window.location.href='http://127.0.0.1:8080/invoice'">
                         <div class=" mx-4 mt-3" id="cricle-background">
                             <li class="nav-item sidemenu">
-                                <a href="#" class="nav-link ">
+                                <a href="{{ url_for('invoice') }}" class="nav-link ">
                                     <i class="fs-4 bi-receipt-cutoff pt-3 " id="fa"></i>
                                 </a>
                             </li>
                         </div>
-                        <a class=" " id="menu-text" href="#">
+                        <a class=" " id="menu-text" href="{{ url_for('invoice') }}">
                             <span class="ps-4 ">Invoice</span>
                         </a>
                     </div>
-                    <div class=" sidemenu mt-5"  id="menu-optoin">
+                    <div class=" sidemenu mt-5 checkout"  id="menu-optoin" onclick="window.location.href='http://127.0.0.1:8080/checkout'">
                         <div class="mx-4 mt-3" id="cricle-background">
                             <li class="nav-item sidemenu">
-                                <a href="#" class="nav-link ">
+                                <a href="{{ url_for('checkout') }}" class="nav-link ">
                                     <i class="fs-4 bi-card-checklist pt-3 " id="fa"></i>
                                 </a>
                             </li>
                         </div>
-                        <a class=" " id="menu-text" href="#">
+                        <a class=" " id="menu-text" href="{{ url_for('checkout') }}">
                             <span class="ps-3">Checkout</span>
                         </a>
                     </div>
-                    <div class="sidemenu mt-5"  id="menu-optoin">
+                    <div class="sidemenu mt-5 order"  id="menu-optoin" onclick="window.location.href='http://127.0.0.1:8080/order'">
                         <div class="mx-4 mt-3" id="cricle-background">
                             <li class="nav-item sidemenu">
-                                <a href="#" class="nav-link ">
+                                <a href="{{ url_for('order') }}" class="nav-link ">
                                     <i class="fs-4 bi-cart-check-fill pt-3 " id="fa"></i>
                                 </a>
                             </li>
                         </div>
-                        <a class=" " id="menu-text" href="#">
+                        <a class=" " id="menu-text" href="{{ url_for('order') }}">
                             <span class="ps-4">Order</span>
                         </a>
                     </div>
-                    <div class=" sidemenu mt-5"  id="menu-optoin">
+                    <div class=" sidemenu mt-5 report"  id="menu-optoin" onclick="window.location.href='http://127.0.0.1:8080/report'">
                         <div class=" mx-4 mt-3" id="cricle-background">
                             <li class="nav-item sidemenu">
-                                <a href="#" class="nav-link ">
+                                <a href="{{ url_for('report') }}" class="nav-link ">
                                     <i class="fs-4 bi-bar-chart-fill pt-3 " id="fa"></i>
                                 </a>
                             </li>
                         </div>
-                        <a class=" " id="menu-text" href="#">
+                        <a class=" " id="menu-text" href="{{ url_for('report') }}">
                             <span class="ps-4">Report</span>
                         </a>
                     </div>

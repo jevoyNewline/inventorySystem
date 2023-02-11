@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid" id="checkout">
+    <div class="loader"></div>
+    <h3 id="page-title"> Checkout </h3>
+    <div class="ms-md-auto d-flex align-items-center">
+        <button class=" btn-dashboard btn-sm me-4 " type="button" id="addCheckoutBtn"><i class="fs-6 bi-card-list"></i> <span class="btn-dashboard-text p-1"> Log a Checkout </span> </button> 
+    </div>
+    <div class="checkout-box">
+        <h3 class="stock-box-title"> Check Out </h3>
+        <form action="" class="mt-5 sortform" name="sortform">
+            <div class="filter-box">
+                <label for="checkout-category-filter">Status:</label>
+                <select id="checkout-category-filter" name="categoryList">
+                    <option value=""></option>
+                    <option value="Return">Return</option>
+                    <option value="Check Out">Check Out</option>
+                    <option value="Check Out to return">Check Out to return</option>
+                 </select>
+            </div>
+            <div class="filter-box">
+                <label for="checkout-brand-filter">Brand:</label>
+                <select id="checkout-brand-filter" name="brandList">
+                    <option value=""></option>
+                    <option value="Mystique">Mystique</option>
+                    <option value="AE"> AE</option>
+                 </select>
+            </div>
+            <div class="filter-box">
+                <label for="sort-by">Sort by date:</label>
+                <select id="checkout-sort-by" name="sort-by">
+                    <option value=""></option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                 </select>     
+            </div>
+            <button class=" btn-sm mx-2 " type="button" id="checkout-filterBtn"> <span class=" btn-filter-text p-1"> Filter </span> </button>  
+        </form>
+        <div class="pt-2 d-flex align-items-center checkout-search">
+            <form class="d-flex ">
+                <input class="checkoutSearch" type="text" placeholder="Search"  id="top-nav-form" onkeyup="checkoutSearch()" >
+             </form>
+        </div>
+
+        <div class="mt-5">
+            <table class="table" id="checkout-table">
+                <thead>
+                    <tr class="table-header">
+                      <th scope="col"></th>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Item Name</th>
+                      <th scope="col">Qty</th>
+                      <th scope="col">comment</th>
+                      <th scope="col">Brand</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Return Date</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Log By</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                    {% for check in checkoutData %}
+                    <tr class="checkout-data">
+                        <td>
+                            <img src="../static/assets/marker.png"" alt=""  width="15" height="15" " alt="" class="mark-img">
+                        </td>
+                        <td scope="row" class="checkId">{{check[0]}} </td>
+                        <td scope="row" class="checkName">{{check[1]}} </td>
+                        <td scope="row" class="checkItem">{{check[2]}} </td>
+                        <td scope="row" class="checkQty">{{check[3]}} </td>
+                        <td scope="row" class="checkComment">{{check[4]}} </td>
+                        <td scope="row" class="checkBrand">{{check[5]}} </td>
+                        <td scope="row" class="checkCategory">{{check[6]}} </td>
+                        <td scope="row" class="checkDate">{{check[7]}} </td>
+                        <td scope="row" class="returnDate">{{check[8]}} </td>
+                        {% if check[9]== 'Return' %}
+                            <td scope="row" class="checkStatus" ><span id="return">{{check[9]}}</span> </td>
+                        {% elif check[9]== 'Check Out' %}
+                            <td scope="row" class="checkStatus" ><span id="check">{{check[9]}}</span> </td>
+                        {% else %}
+                            <td scope="row" class="checkStatus" ><span id="checkto">{{check[9]}}</span> </td>
+                        {% endif %}
+                        <td scope="row" class="checkBy">{{check[10]}} </td>
+                        <td class="checkout-action">
+                            <button class="tableBtn checkout-editBtn"> <i class=" fs-6 tableIcon bi bi-pencil-fill"></i></button>
+                            <button class="tableBtn checkout-modifyBtn"> <i class=" fs-6 tableIcon-modify bi-cloud-fill"></i></button>
+                            <button class="tableBtn checkout-deleteBtn"> <i class=" fs-6 tableIcon-delete bi bi-trash-fill"></i></button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+            </table>
+            
+
+        </div>
+        
+
+        <div id="myModal-checkout" class="modal-checkout">
+            <div class="modal-content-checkout">
+                <span class="close">&times;</span>
+                <form name="checkoutForm" action="{{ url_for('checkout') }}" id="checkoutForm" method="POST">
+                    <h3 class="modal-title"> Add New Check out Item </h3>
+                    <div class="row">
+                        <div class="col-3" id="form-col-1">
+                            <label class="form-label"for="name">Name:</label>
+                            <br>
+                             <input type="text" id="name" name="name" required>
+
+                             <br>
+                             <p class="mt-5">
+                                 <label class="form-label"for="checkoutQty"> Qty:</label>
+                                 <br>
+                                 <input type="number" min=0 max=100 id="checkoutQty" name="checkoutQty" required pattern="^[0-9]*$">
+                             </p>
+
+                             <br>
+                             <p class="mt-5">
+                                 <label class="form-label"for="checkoutBrand"> Brand:</label>
+                                 <br>
+                                 <select id="checkoutBrand" name="checkoutBrand" required>
+                                     <option value=""></option>
+                                     <option value="Mystique">Mystique</option>
+                                     <option value="AE">AE</option>
+                                     <option value="LAPD">LAPD</option>
+                                 </select>
+                             </p>
+                             
+                             <p class="mt-5">
+                                <label class="form-label"for="checkoutStatus"> Status:</label>
+                                <br>
+                                <select id="checkoutStatus" name="checkoutStatus" required>
+                                    <option value=""></option>
+                                    <option value="Return">Return</option>
+                                    <option value="Check Out">Check Out</option>
+                                    <option value="Check Out to return">Check Out to return</option>
+                                </select>
+                            </p>
+
+                        </div>
+                        <div class="col-3 pt-1 px-5" id="form-col-2">
+                            <label class="form-label"for="ItemName"> Item Name:</label>
+                             <select id="ItemName" name="ItemName">
+                            <option value=""></option>
+                                {% for val in stockData %}
+                            <option value="{{ val[0]}}">{{ val[1]}}</option>
+                                 {% endfor %}
+                             </select>
+                            <br>
+                            <p class="mt-5 pt-2" id="formCell">
+                                <label class="form-label"for="checkoutComment"> Comment:</label>
+                                <br>
+                                <input type="text" id="checkoutComment" name="checkoutComment" required>
+                            </p>
+
+                            <br>
+                            <p class="mt-5 pt-1" id="formCell">
+                                <label class="form-label"for="checkoutCategory"> Category:</label>
+                                <br>
+                                <select id="checkoutCategory" name="checkoutCategory" required>
+                                    <option value=""></option>
+                                    <option value="Office Item">Office Item</option>
+                                    <option value="Kitchen Item">Kitchen Item</option>
+                                    <option value="Bathroom Item">Bathroom Item</option>
+                                    <option value="Brand Item">Brand Item</option>
+                                </select>
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn-dashboard btn-sm " id="btn-checkoutForm" name="btn-checkoutForm" value="send"> Add </button>
+                </form>
+                <form name="checkoutForm-edit" action="" id="checkoutFormEdit" method="POST">
+                    <div class="row">
+                        <h3 class="modal-title"> Edit Check out Item </h3>
+                        <div class="col-3" id="form-col-1">
+                            <label class="form-label"for="CheckNameEdit">Name:</label>
+                            <br>
+                             <input type="text" id="CheckNameEdit" name="CheckNameEdit" required>
+
+                             <br>
+                             <p class="mt-5">
+                                 <label class="form-label"for="checkoutQtyEdit"> Qty:</label>
+                                 <br>
+                                 <input type="number" min=0 max=100 id="stock-edit" name="stock-edit" required pattern="^[0-9]*$">
+                             </p>
+
+                             <br>
+                             <p class="mt-5">
+                                 <label class="form-label"for="checkoutBrandEdit"> Brand:</label>
+                                 <br>
+                                 <select id="checkoutBrandEdit" name="checkoutBrandEdit" required>
+                                     <option value=""></option>
+                                     <option value="Mystique">Mystique</option>
+                                     <option value="AE">AE</option>
+                                     <option value="LAPD">LAPD</option>
+                                 </select>
+                             </p>
+                             <p class="mt-5">
+                                <label class="form-label"for="checkoutStatus"> Status:</label>
+                                <br>
+                                <select id="checkoutStatusEdit" name="checkoutStatusEdit" required>
+                                    <option value=""></option>
+                                    <option value="Return">Return</option>
+                                    <option value="Check Out">Check Out</option>
+                                    <option value="Check Out to return">Check Out to return</option>
+                                </select>
+                            </p>
+
+                        </div>
+                        <div class="col-3 pt-1 px-5" id="form-col-2">
+                            <label class="form-label"for="ItemNameEdit"> Item Name:</label>
+                             <input type="text" id="ItemNameEdit" name="ItemNameEdit" required>
+                            <br>
+                            <p class="mt-5 pt-2" id="formCell">
+                                <label class="form-label"for="checkoutCommentEdit"> Comment:</label>
+                                <br>
+                                <input type="text" id="checkoutCommentEdit" name="checkoutCommentEdit" required>
+                            </p>
+
+                            <br>
+                            <p class="mt-5 pt-1" id="formCell">
+                                <label class="form-label"for="checkoutCategory"> Category:</label>
+                                <br>
+                                <select id="checkoutCategoryEdit" name="checkoutCategoryEdit" required>
+                                    <option value=""></option>
+                                    <option value="Office Item">Office Item</option>
+                                    <option value="Kitchen Item">Kitchen Item</option>
+                                    <option value="Bathroom Item">Bathroom Item</option>
+                                    <option value="Brand Item">Brand Item</option>
+                                </select>
+                            </p>
+
+                            <br>
+                            <p class="mt-5 pt-2" id="formCell" hidden>
+                                <input type="text" id="checkoutId-edit" name="checkoutId-edit" required>
+                            </p>
+        
+
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn-dashboard btn-sm " id="btn-checkoutFormEdit" name="btn-checkoutFormEdit" value="send"> Add </button>
+                </form>
+                <div id="confirm">
+                    <h3 class="modal-title"> Was this Item Return </h3>
+                    <div class="col-1 " id="form-col-1">
+                        <button class="btn-dashboard btn-sm " id="Check-btnYes"> Yes</button>
+                    </div>
+                    <div class="col-1 Check-btnNoBox" id="form-col-2">
+                        <button class=" btn-dashboard btn-sm" id="Check-btnNo"> No</button>
+                    </div>
+                    
+                </div>
+
+                <div id="checkoutModify-box">
+                    <h3 class="modal-title"> Modify Data </h3>
+                    <table class="table" id="modify-table">
+                        <thead>
+                            <tr class="table-header">
+                              <th scope="col">Checkout NO#</th>
+                              <th scope="col">New Value</th>
+                              <th scope="col">Old Value</th>
+                              <th scope="col">Date</th>
+                              <th scope="col">User</th>
+                            </tr>
+                          </thead>
+                          <tbody id="checkoutModify-data"></tbody>
+                    </table>
+        
+        
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="../static/js/checkOut.js"></script>
+</div>
+{% endblock %}

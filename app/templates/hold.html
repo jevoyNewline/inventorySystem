@@ -1,0 +1,208 @@
+$('div').on('click', function(){
+    if ( $( this ).hasClass( "home" ) ) {
+
+        $( this ).removeClass('menu-highlight-active');
+        $(this).children('div').removeClass('cricle-background-active');
+        $(this).children('i').removeClass('fa-active');
+        $( this ).removeClass('home');
+
+        
+        $( this ).addClass('menu-optoin');
+        $(this).children('div').addClass('cricle-background');
+        $(this).children('i').addClass('fa');
+        console.log('time');
+        
+    }
+    else if ($(this).hasClass('menu-optoin')){
+        $(this).removeClass('menu-optoin');
+        $(this).children('div').removeClass('cricle-background');
+        $(this).children('i').removeClass('fa');
+    
+        $( this ).addClass('menu-highlight-active');
+        $(this).children('div').addClass('cricle-background-active');
+        $(this).children('i').addClass('fa-active');
+
+
+    }
+    else if( $(this).hasClass('menu-highlight-active') ){
+        $('div').removeClass('menu-highlight-active');
+        $('div').children('div').removeClass('cricle-background-active');
+        $('div').children('i').removeClass('fa-active');
+
+        $( this ).addClass('menu-optoin');
+        $(this).children('div').addClass('cricle-background');
+        $(this).children('i').addClass('fa');
+    
+        
+
+    }
+
+ })
+
+ <form name="addItem-form" class="" action="{{ url_for('dashboard') }}" id="addForm" method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-3" id="form-col-1">
+            <label class="form-label"for="itemName"> Item Name:</label>
+                <br>
+            <input type="text" id="itemName" name="itemName" required>
+                <br>
+            <p class="mt-5">
+                <label class="form-label"for="stock"> Stock:</label>
+                <br>
+                <input type="number" min=0 max=100 id="stock" name="stock" required pattern="^[0-9]*$">
+            </p>
+
+            <br>
+            <p class="mt-5">
+                <label class="form-label"for="brand"> Brand:</label>
+                <br>
+                <input type="text" id="brand" name="brand" required>
+            </p>
+
+            <p class="mt-5">
+                <label class="form-label"for="location"> Location:</label>
+                <br>
+                <input type="text" id="location" name="location" required>
+            </p>
+            <p class="mt-5">
+                <label class="form-label"for="freqChange"> Frequent items:</label>
+                <br>
+                <select id="freqChange" name="freqChange">
+                    <option value=""></option>
+                    <option value="yes">yes</option>
+                    <option value="no"> no</option>
+                </select>
+            </p>
+
+        </div>
+        <div class="col-3 pt-1 px-5" id="form-col-2">
+            <label class="" for="Description">Description:</label> 
+            <br>
+            <input type="text" id="Description" name="Description" required>
+
+            <br>
+            <p class="mt-5 pt-2" id="formCell">
+                <label class="form-label"for="comment"> Comment:</label>
+                <br>
+                <input type="text" id="comment" name="comment" required>
+            </p>
+
+            <br>
+            <p class="mt-5 pt-2" id="formCell">
+                <label class="form-label"for="category"> Category:</label>
+                <br>
+                <input type="text" id="category" name="category" required>
+            </p>
+            <p class="mt-4 pt-3" id="formCell">
+                <label class="form-label"for="stockLimit"> stock Limit:</label>
+                <br>
+                <input type="number" min=0 max=100 id="stockLimit" name="stockLimit" required pattern="^[0-9]*$">
+            </p>
+                <br>
+            <p class="mt-5 pt-2 upload-btn-wrapper" id="formCell">
+                <label class="form-label"for="myFile" id="upload"> Upload Image</label>
+                <br>
+                <input type="file" id="myFile" name="filename">
+            </p>
+
+        </div>
+
+    </div>
+    
+    <button type="submit" class="btn-dashboard btn-sm " id="btn-addForm" name="addItem-form" value="send"> Add </button>
+    
+</form>
+
+ if filename== 'None':
+        query="UPDATE stock SET item_name=%s,stock=%s,descriptions=%s,comment=%s,brand=%s,category=%s,locations=%s,stockLimit=%s,freqChange=%s WHERE stockid=%s "
+        val=(itemNameEdit,stockEdit,DescriptionEdit,commentEdit,brandEdit,categoryEdit,locationEdit,stockLimit,freqChange,stockIdEdit)
+        cursor = mydb.cursor()
+        cursor.execute(query, val)
+        mydb.commit()
+        
+    for x in range(0,len(holVal)):
+        query="INSERT INTO inventory.modify(modifyDate,modifyOld,modifyNew,modifyby)"
+        index=newVal.index(holVal[x])
+        oldVal=itemVal[index]
+        val=(today,oldVal,holVal[x],user)
+        ID=cursor.lastrowid
+        cursor.execute(query, val)
+        mydb.commit()
+        
+        cursor = mydb.cursor()
+        cursor.callproc('AddStockHasModify',[stockIdEdit, ID,])
+        mydb.commit()
+        
+
+        '''blobs=bucket.list_blobs(prefix=data)
+        for blob in blobs:
+            logging.info('Blobs: {}'.format(blob.name))
+            destination_uri = '{}/{}'.format(path_to_download_folder, blob.name) 
+            blob.download_to_filename(destination_uri)
+        #blob.download_to_filename(f"./app/upload/{blob.name}")'''
+        
+        #f06a6a
+        #5da283
+        #4573d2
+        #e2a039
+        #938ce1
+        #285b52
+        #5b073a
+
+        if (confirm(" Was this Item Return ") == true){
+            data=['check','Return',checkId]
+          if(confirm("Do you want to DELETE ") == true){
+            fetch("http://127.0.0.1:8080/delete",{
+              method: 'POST',
+              headers:{
+                'Content-type':'application/json',
+                'Accept':'application/json'
+              },
+              body:JSON.stringify(data)
+            }).then(() => {
+              window.location.reload();
+          })
+      
+      
+          } 
+          }
+          else{
+            data=['check','out',checkId,checkQty]
+            if(confirm("Do you want to DELETE ") == true){
+              fetch("http://127.0.0.1:8080/delete",{
+                method: 'POST',
+                headers:{
+                  'Content-type':'application/json',
+                  'Accept':'application/json'
+                },
+                body:JSON.stringify(data)
+              }).then(() => {
+                window.location.reload();
+            })
+        
+        
+            } 
+      
+          }
+
+          <div id="multOrderForm">
+            <form action="" enctype = "multipart/form-data" method="POST" >
+                <div class="row">
+                    <div class="col-1 file-box upload-btn-wrapper">
+                        <div class="fileupload">
+                            <img id="output-multOrder" src="" alt="" width="100" height="100">
+                        </div>
+                        <br>
+                        <div class="fileName-multOrder"><i class=" fs-5 bi bi-card-image"></i> <span id="imageName-multOrder"></span></div>
+                        <label class="form-label"for="multOrder-myFile" id="upload"> Upload Invoice</label>
+                        <input type="file" id="multOrder-myFile" name="filename" onchange="loadFile(event)" >
+                    </div>
+                </div>
+
+
+            </form>
+            <div id="SavedOrderData">
+
+            </div>
+             
+        </div>

@@ -1,0 +1,104 @@
+#return{
+    background-color: #5da283;
+    padding: 5px;
+    border-radius: 1.875rem;
+}
+#check{
+    background-color:#4573d2;
+    padding: 5px;
+    border-radius: 1.875rem;
+}
+#checkto{
+    background-color:#f06a6a;
+    padding: 5px;
+    border-radius: 1.875rem;
+}
+
+#checkout{
+    margin-left: 13.6875rem;
+    margin-top: -61.25rem;
+   
+}
+.checkout-box{
+    width: 73.125rem;
+    margin-top: 3.125rem;
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    box-shadow: 10px 10px 15px #00000038;
+    border-radius: 8px; 
+}
+#myModal-checkout{
+  
+    background: #12121286 0% 0% no-repeat padding-box;
+  }
+  .modal-checkout {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 12.5rem; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    
+  }
+  .modal-content-checkout{
+    background-color: #fefefe;
+    color:#FFFFFF ;
+    margin-top:0.20rem ;
+    margin-left: 15.625rem;
+    padding: 1.25rem;
+    border: 1px solid #888;
+    width:  72.5rem;
+    border: none;
+    border-radius: 1.25rem;
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    box-shadow: 5px 5px 10px #00000029;
+  }
+  #checkoutForm,#checkoutFormEdit{
+    font: normal normal bold 14px/21px Helvetica;
+}
+#checkoutQty,#checkoutQtyEdit{
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    border: none;
+    color: white; 
+    border-bottom: 1px solid #FFFFFF;
+}
+#btn-checkoutForm,#btn-checkoutFormEdit{
+    width: 6.25rem;
+    margin-left: 29.375rem;
+    margin-top: 2%;
+}
+#confirm{
+    display: none;
+}
+#Check-btnYes{
+    width: 6.25rem;
+    margin-left: 25.375rem;
+}
+#Check-btnNo{
+    width: 6.25rem;
+    margin-left: 20.375rem;
+    
+}
+.Check-btnNoBox{
+    margin-top: -28px;  
+}
+#checkout-category-filter,#checkout-brand-filter,#checkout-sort-by{
+    background: #AFAFAF 0% 0% no-repeat padding-box;
+    border: none;
+}
+#checkout-filterBtn{
+    background: #D1AE6E 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    padding: -2.5rem;
+}
+.checkout-search{
+    margin-left: 56.25rem;
+    margin-top: -2.5rem; 
+}
+#checkoutModify-box{
+    display: none;
+}

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "scotia-gallery",
+  "private_key_id": "83d196d15b3438ba79c4439f2c398ad99bce1b4c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1JHvLhUVvB7vq\naQro7XdeXxoE3i1Gnan+gDrSgLvgXJHTGLT7MxK3st0tbeWctMfT2gTLM1kAQkNJ\nZQ+1aol5ZvlwHn5BuAmR3oaLU5QUyiCkUT/YWMmw1DNbBj+hDCHF57E/EGBCpNlX\nUMmm800jFkW6H1JLXWMgTqeSSRiK/lzwZibsVnI+Lnkku9JXJYluUA7sLqj3Xbo3\nRmoekNn5HJ1sN3+x3GYv02zrxgPjCaN7bUy2IqV9R3WoIuyP9HB6BxpzCE0dqp+V\nIKXF/EzvX92J6yxsucmACiMZFfrOvtmWADwihgYV83Mneq8Z2BMd2lg0Spqw5KIw\nB3xNerunAgMBAAECggEAH1sb5MyCiugzUq3xOgXVKmxa9CnDe5xSL2BiDktDemB7\ny6dUuMEMBel72N/Tpc8zYgw01Tnjt6RAwoUwdW5mMrItDofwwg6J9YqoDpkeooSk\nptz7qMchzq7E3wZTYFzZwcjMCUcb6p1fk/pDldc67I5v7np6g9o8DP0gi7WEfpai\n2oZKCekiawuLrLc1w8kabk3ZJ1JcSJXug0K4R41Wkz++HwRUY+bbef4V89Vc4PSO\nVka1PoPYvGVRJWmes1f5W2DA38ORww6a5DpJZJRkAM0XY2P7mWInxjiFQGl1bNhb\nL+a9c/v2jvMZLdW8S7wW3Vmm+ERz46oCZS4nfT8AAQKBgQD83p9YYdiLdbfg8/9S\ns9EaYD9ChVOXOtC5nz20DzNk5hLmsuzqIwxV1l91pPsfN+2DhWSp6SDhE+1a+eiz\nnIybMacXx0FtDit/zdx310u/ExJLlLawdEOvyCeD/xe5qKdnLR3eg8ZuusUfy9oJ\n2ibWIBwYpL3T5/oG2NUjdTq7pwKBgQC3YoxhynlKZYjj+9JXyVtENEZcHAmwMjpF\n7G/ZIfq3h35weFBLpiPxxqA6+fK9cQbFVBleQGVm2PCNAYvf/xdBtzd8zD1EZbxN\nPcpMOA5+mgNkNKb5HQMzvVy0RRywO/8wD1JI+nsorAJDOYg/qypey+IZM0piQCsz\nXQ0qbcAAAQKBgQDVVw2hB4wmvP6R78muAL+ePS2h9dJ8eMa4lLz+OQTnT6UKtlJj\nh4ZUtTR8kOC9ifX9TIGNSH7Q5nsOkmHdh2qpVM7gpN9yHs5cWVZ0VVQ2tORul906\nKh0hJQERwBpILR5vUgUtQogby7+b/+TJAyBY72ZE9Fije8faFv5bmAAhaQKBgGLW\ncIb8U6bvVnpZ7SJ3WgNGkW1vhyE50QKCzj2e/LwSAOmpTs2W++SBgzaGJHhKBLYx\n/4I2/vARmITHApZ1rBk1IGjYw2Sr2HNhDDlMNTOy2oUVg7DcHC+0rdRTM4UgsQc8\nGsNOjTZ8jrOgvHhkTm/NP00Jwdt2blI+oqvtfwABAoGALE7Sn8E/XrLSxLcM4BLj\nW/FOzWvBZ8pylU65nW/qNQkgZUlU7fq95MpIQmtg9sxUc7nwyWxGxOu6MIpBloX2\nj5Wa6YTu6YDi0lk3HXM2Zwoidx/IZ2slJ2XPbnw/SeMED+674rghe9O/D4nvKSkz\nk7z7HhScaed6k9zpj3BpzHA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "misystem@scotia-gallery.iam.gserviceaccount.com",
+  "client_id": "102078795805911243033",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/misystem%40scotia-gallery.iam.gserviceaccount.com"
+}

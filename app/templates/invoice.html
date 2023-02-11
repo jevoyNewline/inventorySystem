@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid " id="dashboard">
+    <div class="loader"></div>
+    <h3 id="page-title"> Invoice </h3>
+    <div class="dashboard-invoice-box">
+        <form action="" class="mt-5 sortform" name="sortform">
+            <div class="filter-box">
+                <label for="supplier-filter">Supplier:</label>
+                <select id="supplier-filter" name="supplierList">
+                    <option value=""></option>
+                    {% for val in supplier %}
+                    <option value="{{val}}">{{val}}</option>
+                    {% endfor %}
+                 </select>
+
+            </div>
+            <div class="filter-box">
+                <label for="sort-by">Sort by date:</label>
+                <select id="invoice-sort-by" name="sort-by">
+                    <option value=""></option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                 </select>     
+            </div>
+            <button class=" btn-sm mx-2 " type="button" id="invoice-filterBtn"> <span class=" btn-filter-text p-1"> Filter </span> </button> 
+        </form>
+        <div class="pt-2 d-flex align-items-center invoiceSearch">
+            <form class="d-flex ">
+                <input class="DashInvo" type="text" placeholder="Search"  id="top-nav-form" onkeyup="DashInvoSearch()" >
+             </form>
+        </div>
+        <div class="mt-5">
+       
+        <table class="table" id="invoice-table">
+            <thead>
+                <tr class="table-header">
+                    <th scope="col"></th>
+                    <th scope="col">#</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Supplier</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Log By</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for invoice in invoiceData %}
+            <tr class="invoiceData">
+                <td>
+                    <img src="../static/assets/marker.png"" alt=""  width="15" height="15" " alt="" class="mark-img">
+                </td>
+                <td scope="row" class="inoviceId">{{ invoice[0]}}</td>
+                <td class="DashInvo-img">
+                    {% if invoice[3] == 'None' %}
+                    <img src="https://storage.googleapis.com/misystem_items/images.png" alt=""  width="20" height="20"  alt=""class="img">
+                    {% else %}
+                    <img src="{{ invoice[3]}}" alt=""  width="50" height="50"  alt="" class="img">
+                    {% endif %}
+                </td>
+                <td scope="row" class="inoviceSupplier">{{ invoice[1]}}</td>
+                <td scope="row" class="inoviceData">{{ invoice[4]}}</td>
+                <td scope="row" class="inoviceLog">{{ invoice[5]}}</td>
+                <td class="stock-action">
+                    <button class="tableBtn inovice-editBtn"> <i class=" fs-6 tableIcon bi bi-pencil-fill"></i></button>
+                    <button class="tableBtn inovice-modifyBtn"> <i class=" fs-6 tableIcon-modify bi-cloud-fill"></i></button>
+                    <button class="tableBtn inovice-downloadBtn"> <i class=" fs-6 tableIcon-download bi bi-box-arrow-down"></i></button>
+                    <button class="tableBtn "> <i class=" fs-6 tableIcon-delete bi bi-trash-fill"></i></button>
+                </td>   
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        <a href=""class="seeMoreBtn mb-2"> SEE MORE <i class=" bi-arrow-right"> </i></a>
+        </div>
+        <div id="myModal-inovice-edit" class="inoviceModel-edit">
+            <!-- Modal content -->
+            <div class="modal-content-inovice">
+              <span class="close4">&times;</span>
+              <form name="addInovice-form" class="" action="{{ url_for('invoice') }}" id="InoviceOrder-form" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-1 file-box upload-btn-wrapper">
+                        <div class="fileupload">
+                            <img id="output-inoviceItem" src="" alt="" width="100" height="100">
+                        </div>
+                        <br>
+                        <div class="filename-inovice"><i class=" fs-5 bi bi-card-image"></i> <span id="imageName-inoviceItem"></span></div>
+                        <label class="form-label"for="myFile-inoviceItem" id="upload"> Upload Image</label>
+                        <input type="file" id="myFile-inoviceItem" name="filename" onchange="loadFileDashInvo(event)">
+                    </div>
+                    <div class="col-3" id="form-col-1">
+                        <label class="form-label"for="inovice-editSupp"> Supplier:</label>
+                        <br>
+                        <input type="text" id="inovice-editSupp" name="inovice-editSupp"required> 
+
+                        <p class="mt-5 pt-2" id="formCell" hidden>
+                            <input type="text" id="inoviceId-edit" name="inoviceId-edit" required>
+                        </p>
+                    </div>
+                </div>
+              </form>
+              <div id="invoiceModify-box">
+                <h3 class="modal-title"> Modify Data </h3>
+                <table class="table" id="modify-table">
+                    <thead>
+                        <tr class="table-header">
+                          <th scope="col">Invoice NO#</th>
+                          <th scope="col">New Value</th>
+                          <th scope="col">Old Value</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">User</th>
+                        </tr>
+                      </thead>
+                      <tbody id="invoiceModify-data"></tbody>
+                </table>
+    
+            </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../static/js/invoice.js"></script>
+</div>
+{% endblock %}

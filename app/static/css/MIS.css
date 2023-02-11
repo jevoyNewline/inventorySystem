@@ -4,6 +4,7 @@
     border-radius: 1.875rem;
     width: 10rem;  
     margin-top: -70px; 
+    
 }
 #row-section{
     width: 10rem;
@@ -14,6 +15,49 @@
 body{
     background-color:#1E1F21 !important;
     }
+.order-data:hover,.data:hover,.invoiceData:hover,.checkout-data:hover{
+    background-color: #424244;
+}
+.order-data.active,.data.active,.invoiceData.active,.checkout-data.active{
+    background-color: #405156;
+
+}
+.loader{
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #12121286;
+    transition: opacity 0.75s, visibility 0.75s;
+    z-index: 1;
+}
+.load.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+.loader::after{
+    content: '';
+    width: 75px;
+    height: 75px;
+    border: 12px solid #dddddd;
+    border-top-color:#7449f5 ;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+@keyframes loading {
+    from{
+        transform: rotate(0turn)  
+    }
+    to{
+        transform: rotate(1turn);
+    }
+    
+    
+}
 
 /*=============================================
 =            menu highlight            =
@@ -24,6 +68,7 @@ body{
     width: 7rem;
     height: 8.125rem;
     border-radius: 1.875rem;
+  
 }
 #cricle-background.active{
     background: #F8FCFF1C 0% 0% no-repeat padding-box;
@@ -33,18 +78,21 @@ body{
   width: 3.75rem;
   height: 3.75rem;
   opacity: 0.8;
+  
 }
 
 #fa.active{
     color: white;
     margin-left: 0.156rem;
     letter-spacing: 0px;
+    
 }
 #menu-text.active{
     color: white;
     padding-top: 0.8125rem;
     text-decoration: none;
     font: normal normal bold 18px/42px Helvetica;
+    
 }
 
 /*=====  End of menu highlight  ======*/
@@ -88,11 +136,11 @@ body{
 =============================================*/
 #top-nav{
     height: 3.885rem;
-    
     background: #2E2E31 0% 0% no-repeat padding-box;
     box-shadow: 10px 10px 15px #00000029;
     border-radius: 0.375rem;
-    margin-left: 230px;
+    margin-left: 210px;
+
 }
 #top-nav-form{
     background: #1E1F21 0% 0% no-repeat padding-box;
@@ -132,8 +180,8 @@ body{
 /*=============================================
 =            dashboard report section css            =
 =============================================*/
-#dashboard{
-    margin-left: 13.6875rem;
+#dashboard,#order,#invoice{
+    margin-left: 12rem;
     margin-top: -61.25rem;
    
 }
@@ -218,12 +266,26 @@ modal {
   
     background: #12121286 0% 0% no-repeat padding-box;
   }
+.modal-title{
+    text-align: center;
+    font: normal normal bold 24px/36px Helvetica;
+    padding-bottom: 30px;
+    color: #AFAFAF;
+}
+.multOrder-title{
+    display: none;
+    text-align: center;
+    font: normal normal bold 24px/36px Helvetica;
+    padding-bottom: 30px;
+    color: #AFAFAF;
+}
+
   
   /* Modal Content */
 .modal-content-box {
     background-color: #fefefe;
     color:#FFFFFF ;
-    margin-top:11.25rem ;
+    margin-top:4.25rem ;
     margin-left: 15.625rem;
     padding: 1.25rem;
     border: 1px solid #888;
@@ -233,10 +295,10 @@ modal {
     background: #2E2E30 0% 0% no-repeat padding-box;
     box-shadow: 5px 5px 10px #00000029;
   }
-#addForm{
+#addForm,#Instock-form,#multOrderForm{
     font: normal normal bold 14px/21px Helvetica;
 }
-.close,.close1,.close2,.close3 {
+.close,.close1,.close2,.close3,.close4 {
     color: #9D9D9D;
     float: right;
     font-size: 28px;
@@ -249,7 +311,9 @@ modal {
 .close2:hover,
 .close2:focus,
 .close3:hover,
-.close3:focus {
+.close3:focus,
+.close4:hover,
+.close4:focus {
     color: #ff0000;
     text-decoration: none;
     cursor: pointer;
@@ -260,7 +324,13 @@ modal {
     color: white;
     border-bottom: 1px solid #FFFFFF;
 }
-#stock{
+input[placeholder=Search] {
+    padding-left: 14px;
+    font-size: 16px;
+    color: #C6C6C6;
+    opacity: 0.8;
+}
+#stock,#stockLimit{
     background: #2E2E30 0% 0% no-repeat padding-box;
     border: none;
     color: white; 
@@ -274,23 +344,61 @@ modal {
 #form-col-2{
     margin-left: 5.625rem;
 }
-#btn-addForm{
+#btn-addForm,#btn-addOrderForm,#btn-inStockForm{
     width: 6.25rem;
     margin-left: 29.375rem;
     margin-top: 2%;
     
 }
-#upload{
-    border: 1px solid #D3B47C;
+#multOrder-btnGroup{
+    margin-left: 20.375rem;
+    align-items: center;
+}
+.bi-card-image{
+    color: #6990F2;
+    margin-left: 5px;
+}
+.file-name,.filename-instock,.filename-additem,.filename-editItem,.filename-inovice,
+.fileName-multOrder{
+    display: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    width: 200px;
+   
+}
+.file-box{
+    margin-left: 20px;
+}
+
+.fileupload{
+    border: 1px dashed #D3B47C;
     color: white;
+    margin-top: 70px;
+    width: 200px;
+    height: 200px;
     background: #2E2E30 0% 0% no-repeat padding-box;
     padding: 0.375rem 1.875rem;
     border-radius: 10px;
+}
+#upload{
+    margin-top: 15px;
+    border: 1px solid #D3B47C;
+    border-radius: 10px;
+    width: 200px;
+    padding: 0.375rem 2.875rem;
     font-size: 14px;
     font-weight: bold; 
+    
 }
+#output,#output-instock,#output-additem,#output-editItem,#output-inoviceItem,#output-multOrder{
+    display: none;
+    width: 150px;
+    height: 150px;
+}
+
 .upload-btn-wrapper input[type=file] {
-    font-size: 100px;
     position: absolute;
     left: 0;
     top: 0;
@@ -301,11 +409,12 @@ modal {
 =            Order Modal            =
 =============================================*/
 
-.modal-order,.orderModel-edit {
+/* Pop up template  */
+.modal-order,.orderModel-edit,.inoviceModel-edit {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 12.5rem; /* Location of the box */
+    padding-top: 8.5rem; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -313,16 +422,69 @@ modal {
     overflow: auto; /* Enable scroll if needed */
     
   }
-  #myModal-order,#myModal-order-edit{
+  
+  /* Order Form Buttons */
+  #btn-inStock,#btn-notStock,#addMultOrder{
+    display: block;
+    border: 1px solid #d3b47cc1;
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    padding: 0.375rem 0.875rem;
+    font-family: Helvetica;
+  }
+  #multOrder-btnSave{
+    color: #4286F4;
+    border-radius: 8px;
+    padding: 0.375rem 0.875rem;
+    border: 1px solid #4286F4;
+    background: #2E2E30 0% 0% no-repeat padding-box;
+    font-family: Helvetica;
+    font-size: 12px;
+  }
+  #multOrder-btnSave:hover{
+    color: white !important;
+    box-shadow: 0px 3px 6px #00000029;
+    font-size: 12px;
+    padding: 0.375rem 0.875rem;
+    border: 1px solid #4286F4;
+    border-radius: 8px;
+    background:  #4286F4 0% 0% no-repeat padding-box;
+  }
+
+  /* Order Form Buttons hover */
+  #btn-inStock:hover,#btn-notStock:hover{
+    border: 1px solid #d3b47cc1;
+    background:  #d3b47cc1 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0px 3px 6px #00000029;
+    font-size: 12px;
+    padding: 0.375rem 0.875rem;
+    font-family: Helvetica;
+  }
+  
+  /* Forms are hidden */
+  #form2,#multOrderForm{
+    display: none;
+
+  }
+  
+  /* Form pop up background colour */
+  #myModal-order,#myModal-order-edit,#myModal-inovice-edit{
   
     background: #12121286 0% 0% no-repeat padding-box;
   }
+  #SavedOrderData{
+    display: none;
+  }
   
   /* Modal Content */
-.modal-content-order {
+.modal-content-order,.modal-content-stock,.modal-content-inovice {
     background-color: #fefefe;
     color:#FFFFFF ;
-    margin-top:1.25rem ;
+    margin-top:-6.25rem ;
     margin-left: 15.625rem;
     padding: 1.25rem;
     border: 1px solid #888;
@@ -332,19 +494,41 @@ modal {
     background: #2E2E30 0% 0% no-repeat padding-box;
     box-shadow: 5px 5px 10px #00000029;
   }
-  #addOrder-form{
+  
+  /* Order form font */
+ .edForm{
+    font: normal normal bold 14px/21px Helvetica;
+ }
+ 
+ /* Order forms add button  */
+  #addOrder-form,#editOrder-form{
+    display: block;
     font: normal normal bold 14px/21px Helvetica;
 }
-#qty{
+
+/* Number input  */
+#qty,#inStock-qty,#order-qty,#stock-edit,#stockLimit-edit,#qty-orderEdit{
     background: #2E2E30 0% 0% no-repeat padding-box;
     border: none;
     color: white; 
     border-bottom: 1px solid #FFFFFF;
 }
+#save-box{
+    background: rgba(211, 181, 124, 0.27) 0% 0% no-repeat padding-box;
+    color: white;
+    font-family: Helvetica;
+    border: 1px solid #d3b47cc1;
+    border-radius: 8px;
+    width: 235px;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 15px;
 
-
-
-/*=====  End of Order Modal  ======*/
+}
+#save-box>span{
+    width: 135px;
+}
+/*===================  End of Order Modal  ==================*/
 
 /*=============================================
 =            Edit Model CSS            =
@@ -378,14 +562,14 @@ modal {
 /*=============================================
 =            Dashboard Stock Table css            =
 =============================================*/
-.dashboard-stock-box,.dashboard-order-box{
-    width: 73.125rem;
+.dashboard-stock-box,.dashboard-order-box,.dashboard-invoice-box{
+    width: 75.125rem;
     margin-top: 3.125rem;
     background: #2E2E30 0% 0% no-repeat padding-box;
     box-shadow: 10px 10px 15px #00000038;
     border-radius: 8px;
 }
-.stock-box-title,.order-box-title{
+.stock-box-title,.order-box-title,.invoice-box-title{
     text-align: left;
     margin-left: 2.5rem;
     padding-top: 1.875rem;
@@ -393,7 +577,7 @@ modal {
     color: #AFAFAF;
 
 }
-#filterBtn,#order-filterBtn{
+#filterBtn,#order-filterBtn,#invoice-filterBtn{
     background: #D1AE6E 0% 0% no-repeat padding-box;
     border-radius: 8px;
     color: white;
@@ -413,17 +597,23 @@ modal {
     color: white;
     font: normal normal bold 12px/18px Helvetica;
 }
-#sort-by,#order-sort-by{
+#sort-by,#order-sort-by,#invoice-sort-by{
     background: #AFAFAF 0% 0% no-repeat padding-box;
     border: none;
 }
-#brand-filter,#order-brand-filter{
+#brand-filter,#order-brand-filter,#supplier-filter,#department-filter{
     background: #AFAFAF 0% 0% no-repeat padding-box;
     border: none;
 }
 #category-filter,#order-category-filter{
     background: #AFAFAF 0% 0% no-repeat padding-box;
     border: none;
+}
+#editForm{
+    display: block;
+}
+#modify-box,#orderModify-box,#invoiceModify-box{
+    display: none;
 }
 .table-header{
     background: #D3B47C 0% 0% no-repeat padding-box;
@@ -438,12 +628,34 @@ td {
     font-size: 12px;
     word-break:  break-word;
     color: white;
-    font-family: Helvetica;;   
+    font-family: Helvetica;  
 }
+table th:first-child{
+    border-radius:10px 0 0 10px;
+ 
+  }
+  
+table th:last-child{
+    border-radius:0 10px 10px 0;
+
+  }
 
 .tableBtn{
-    background-color:#2E2E30 ;
+    background-color: Transparent;
+    background-repeat:no-repeat;
     border: none;
+}
+.SavedOrderDel{
+    background-color: red;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 3px 3px 5px #00000029;
+}
+.SavedOrder-title{
+    font-family: Helvetica;
+}
+.SavedOrderIcon-delete{
+color: white;
 }
 .tableIcon{
     color: #1D90F4;
@@ -451,6 +663,12 @@ td {
 .tableIcon-delete{
     color: red;
 } 
+.tableIcon-download{
+    color: #4286F4;
+}
+.tableIcon-modify{
+    color: #4B569C;
+}
 .seeMoreBtn{
     text-decoration: none;
     font: normal normal bold 10px Helvetica;
@@ -458,11 +676,139 @@ td {
     margin-left: 34.9375rem;
 
 }
-.stock-search,.order-search{
-    margin-left: 56.25rem;
-    margin-top: -2.5rem; 
+.stock-search,.order-search,.invoiceSearch{
+    margin-left: 61.25rem;
+    margin-top: -2.1rem; 
    
 }
 
 /*=====  End of Dashboard Stock Table css  ======*/
 
+
+/*=============================================
+=            colours            =
+=============================================*/
+#MYSTIQUE{
+    background-color:#f1bd6c;
+    padding: 3px;
+    border-radius: 1.875rem;
+}
+#AE{
+    background-color:#938ce1;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 1.875rem; 
+}
+#LAPD{
+    background-color:#f06a6a;
+    padding: 2px;
+    border-radius: 1.875rem; 
+}
+#Operation,#PRICESMART{
+    background-color:#647FE0;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+#DIGIMONS{
+    background-color:#b36bd4;
+    padding: 2px;
+    border-radius: 1.875rem; 
+}
+#CPU{
+    background-color:#4ecbc4;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+#PR{
+    background-color:#f8df72;
+    padding: 5px;
+    border-radius: 1.875rem;
+}
+
+/* Brand colours */
+#APPLETON{
+    background-color:#306793;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+#APERROL{
+    background-color:#ec8d71;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+#CAMPARI,#DIGICEL,#KBAN,#KFC,span[id="PIZZA HUT"],#SCOTIA{
+    background-color:#f06a6a;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+span[id='CANDY CRAZE']{
+    background-color:#f06a6a;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+#CB{
+    background-color:#f06a6a;
+    padding: 5px;
+    border-radius: 1.875rem;
+}
+#CWP,#Hi-LO,#MAYBERRY{
+    background-color:#4573d2;
+    padding: 5px;
+    border-radius: 1.875rem; 
+}
+#ICOOL{
+    background-color:#8d84e8;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+#GUARDSMAN{
+    background-color:#6d6e6f;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+#HODDER,span[id="KGN 62"],#SUMFEST{
+    background-color:#f8df72;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+#JFDF{
+    background-color:#4ecbc4;
+    padding: 5px;
+    border-radius: 1.875rem;
+}
+#RAINFOREST{
+    background-color:#6fa2a2;
+    padding: 2px;
+    border-radius: 1.875rem; 
+}
+#WOP{
+    background-color:#aecf55;
+    padding: 5px;
+    border-radius: 1.875rem;
+}
+
+
+/* Order Status Colour */
+#Received{
+    background-color: #5da283;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+
+#Ordered{
+    background-color:#f06a6a;
+    padding: 2px;
+    border-radius: 1.875rem;
+}
+
+
+
+.border-dark {
+    --bs-border-opacity: 0.2;
+    --bs-success-rgbg: rgb(110,109,111)
+    border-color: rgba(var(--bs-success-rgbq), var(--bs-border-opacity)) !important;
+  }
+/*=====  End of colours  ======*/
+.sortform{
+    padding-top: 40px;
+}

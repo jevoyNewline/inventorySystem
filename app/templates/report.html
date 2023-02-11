@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid" id="report-box">
+    <h3 id="page-title"> Reports </h3>
+    <div class="ms-auto d-flex mt-4" id="row-base-1">
+        <div id="col-report-box">
+            <h3 id="dashboard-report">Total Expense on all Items</h3>
+            <p class="expense-title mx-4">Money spend during the Month:</p>
+            <p class="expense-pre-title mx-4">Money spend during the Month per (%):</p>
+            <div class="chart-report" data-percent="{{expenseMthData[2]}}" > </div>
+            <p class="expense-pre-report">{{expenseMthData[2]}}% </p>
+            <p class="money-report mx-4">${{expenseMthData[1]}}</p>
+            <p class="overExpense-title mx-4">Over spend money:</p>
+            <p class="overExpense mx-4">${{expenseMthData[3]}}</p>
+            <select class="mx-4" id="month-select" name="">
+                <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+            </select>
+            <div class="month-box mx-4">
+                <p class="month-text"><span class="month-name">{{expenseMthData[0]}}</span> <i class="bi bi-caret-down-fill"></i></p>
+            </div>
+          
+
+        </div>
+
+        <div class=" mx-3"  id="col-report-box">
+            <h3 id="dashboard-report">Total Expense On Kitchen Items</h3>
+            <p class="Kitchenexp-title mx-4">Money spend during the Month:</p>
+            <p class="Kitchenexp-pre-title mx-4">Money spend during the Month per (%):</p>
+            <div class="KitchenChart-report" data-percent="{{kitchen[2]}}" > </div>
+            <p class="Kitchenexp-pre-report">{{kitchen[2]}}%</p>
+            <p class="KitchenMoney-report mx-4">${{kitchen[1]}}</p>
+            <p class="KitchenExpense-title mx-4">Over spend money:</p>
+            <p class="KitchenOverExpense mx-4">${{kitchen[3]}}</p>
+            <select class="mx-4" id="KitchenMonth-select" name="">
+                    <option value=""></option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+            </select>
+            <div class="KitchenMonth-box mx-4">
+                <p class="KitchenMonth-text"><span class="KitchenMonth-name">{{kitchen[0]}}</span> <i class="bi bi-caret-down-fill"></i></p>
+            </div>
+            <select class="" name="" id="Paid-select">
+                <option value=""></option>
+                <option value="Paid">Paid</option>
+                <option value="Unpaid">Unpaid</option>
+            </select>
+            <div class="Paid-box">
+                <p class="Paid-text"><span class="Paid-name">Order Status</span> <i class="bi bi-caret-down-fill"></i></p>
+            </div>
+
+        </div>
+
+    </div> 
+    <div class="ms-auto d-flex mt-4" id="row-base-1">
+        <div id="col-report-box">
+            <h3 id="dashboard-report">Total Expense On Office Items</h3>
+            <p class="expense-title mx-4">Money spend during the Month:</p>
+            <p class="expense-pre-title mx-4">Money spend during the Month per (%):</p>
+            <div class="OfficeChart-report" data-percent="{{office[2]}}" > </div>
+            <p class="Office-pre-report">{{office[2]}}% </p>
+            <p class="OfficeMoney-report mx-4">${{office[1]}}</p>
+            <p class="OfficeExpense-title mx-4">Over spend money:</p>
+            <p class="officeExpense mx-4">${{office[3]}}</p>
+            <select class="mx-4" id="OfficeMonth-select" name="">
+                    <option value=""></option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+            </select>
+            <div class="OfficeMonth-box mx-4">
+                <p class="OfficeMonth-text"><span class="OfficeMonth-name">{{office[0]}}</span> <i class="bi bi-caret-down-fill"></i></p>
+            </div>
+            <select class="" name="" id="OfficePaid-select">
+                <option value=""></option>
+                <option value="Paid">Paid</option>
+                <option value="Unpaid">Unpaid</option>
+            </select>
+            <div class="OfficePaid-box">
+                <p class="OfficePaid-text"><span class="OfficePaid-name">Order Status</span> <i class="bi bi-caret-down-fill"></i></p>
+            </div>
+
+        </div>
+        <div class=" mx-3"  id="col-report-box" >
+            <h3 id="dashboard-report">Number of Items Checkout By Month</h3>
+            <canvas id="myChart" style="width:100%;max-width:550px"></canvas>
+        </div> 
+    </div>
+
+    <div class="ms-auto d-flex mt-4" id="row-base-1">
+        <div id="col-report-box">
+            <h3 id="dashboard-report">Number of Unpaid Items By Month </h3>
+            <canvas id="myChartLine" style="width:100%;max-width:550px"></canvas>
+        </div>
+
+        <div class=" mx-3"  id="col-report-box">
+            <h3 id="dashboard-report">Number of Paid Items By Month </h3>
+            <canvas id="myChartPaid" style="width:100%;max-width:550px"></canvas>
+        </div>
+        
+    </div>
+    <div class="ms-auto d-flex mt-4" id="row-base-1">   
+        <div id="col-report-box">
+            <h3 id="dashboard-report">Inventory Summary </h3>
+            <canvas id="myChartPie" style="width:100%;max-width:500px"></canvas>
+        
+            <div class="total-box mx-3"> 
+                <p class="total-title mx-4"> Total Items: <span class="total-value"></span></p>
+            </div>
+        </div>
+        <div class=" mx-3"  id="col-report-box">
+            <h3 id="dashboard-report">Low Inventory Summary </h3>
+            <canvas id="myChartPieLow" style="width:100%;max-width:500px"></canvas>
+        </div>
+    </div>
+
+<script type="text/javascript" src="../static/js/report.js"></script>
+</div>
+{% endblock %}
